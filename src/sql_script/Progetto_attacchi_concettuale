@@ -1,0 +1,366 @@
+<Project name="Attacchi">
+<ConceptualSchema>
+<Entity name="Attacco Terroristico" X="851" Y="423" >
+<Attribute name="data_ora" type="timestamps" minCard="1" maxCard="1"/>
+<Attribute name="latitudine" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="longitudine" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="numero_terroristi" type="integer" minCard="1" maxCard="1"/>
+<Attribute name="numero_feriti" type="integer" minCard="1" maxCard="1"/>
+<Attribute name="numero_deceduti" type="integer" minCard="1" maxCard="1"/>
+<Attribute name="descrizione" type="varchar" minCard="1" maxCard="1" length="500"/>
+<Attribute name="motivazione" type="varchar" minCard="0" maxCard="N" length="150"/>
+<Attribute name="tipologia" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Identifier name="id0" attributes="data_ora, latitudine, longitudine"/>
+</Entity>
+<Entity name="Arma" X="869" Y="116" >
+<Attribute name="ID_arma" type="integer" minCard="1" maxCard="1"/>
+<Attribute name="nome" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="descrizione" type="varchar" minCard="1" maxCard="1" length="500"/>
+<Identifier name="id0" attributes="ID_arma"/>
+</Entity>
+<Entity name="Target" X="1117" Y="603" >
+<Attribute name="nome" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="descrizione" type="varchar" minCard="1" maxCard="1" length="500"/>
+<Attribute name="tipologia" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Identifier name="id0" attributes="nome"/>
+</Entity>
+<Entity name="Terrorista" X="459" Y="752" >
+<Attribute name="ID" type="integer" minCard="1" maxCard="1"/>
+<Attribute name="provenienza" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="nome" type="varchar" minCard="0" maxCard="1" length="30"/>
+<Attribute name="cognome" type="varchar" minCard="0" maxCard="1" length="30"/>
+<Attribute name="data_nascita" type="date" minCard="0" maxCard="1"/>
+<Identifier name="id0" attributes="ID"/>
+</Entity>
+<Entity name="Gruppo Terroristico" X="144" Y="574" >
+<Attribute name="nome" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="alias" type="varchar" minCard="0" maxCard="N" length="30"/>
+<Attribute name="sigla" type="varchar" minCard="0" maxCard="1" length="30"/>
+<Attribute name="provenienza_principale" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="descrizione" type="varchar" minCard="1" maxCard="1" length="500"/>
+<Attribute name="tipologia_gruppo" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Identifier name="id0" attributes="nome"/>
+</Entity>
+<Entity name="Organizzazione" X="158" Y="138" >
+<Attribute name="nome" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="sigla" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="paese" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Identifier name="id0" attributes="nome"/>
+</Entity>
+<Entity name="Report" X="369" Y="-53" >
+<Attribute name="data_chiusura" type="date" minCard="1" maxCard="1"/>
+<Attribute name="titolo" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="descrizione" type="varchar" minCard="1" maxCard="1" length="500"/>
+<Attribute name="allegato" type="varchar" minCard="1" maxCard="1" length="30"/>
+</Entity>
+<Entity name="Indagine" X="379" Y="495" >
+<Attribute name="ID_indagine" type="integer" minCard="1" maxCard="1"/>
+<Identifier name="id0" attributes="ID_indagine"/>
+</Entity>
+<Entity name="Indagine Corso" X="173" Y="431" >
+<Attribute name="data_inizio" type="date" minCard="1" maxCard="1"/>
+</Entity>
+<Entity name="Indagine Conclusa" X="414" Y="351" >
+</Entity>
+<Entity name="Attacco Coordinato" X="620" Y="182" >
+<Attribute name="ID" type="integer" minCard="1" maxCard="1"/>
+<Identifier name="id0" attributes="ID"/>
+</Entity>
+<Entity name="Arma da fuoco" X="591" Y="52" >
+<Attribute name="calibro_arma" type="varchar" minCard="1" maxCard="1" length="30"/>
+</Entity>
+<Entity name="Bomba" X="591" Y="-53" >
+<Attribute name="tipologia_esplosivo" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="quantita_esplosivo" type="varchar" minCard="0" maxCard="1" length="30"/>
+<Attribute name="potenza" type="varchar" minCard="0" maxCard="1" length="30"/>
+</Entity>
+<Entity name="Veicolo" X="1090" Y="-51" >
+<Attribute name="targa" type="varchar" minCard="0" maxCard="1" length="30"/>
+<Attribute name="CF_proprietario" type="varchar" minCard="0" maxCard="1" length="30"/>
+</Entity>
+<Entity name="Arma Chimica" X="886" Y="-52" >
+<Attribute name="sostanza" type="varchar" minCard="1" maxCard="1" length="30"/>
+</Entity>
+<Entity name="Altra Arma" X="1132" Y="61" >
+</Entity>
+<Relationship name="APPARTENENZA" X="619" Y="351">
+</Relationship>
+<Relationship name="APPARTENENZA TERRORISTICA" X="166" Y="789">
+</Relationship>
+<Relationship name="REFERENZA" X="652" Y="490">
+</Relationship>
+<Relationship name="OBIETTIVO" X="1168" Y="495">
+</Relationship>
+<Relationship name="STRUMENTO" X="915" Y="273">
+</Relationship>
+<Relationship name="EFFETTUATO" X="506" Y="622">
+</Relationship>
+<Relationship name="SEQUENZA" X="1172" Y="202">
+</Relationship>
+<Relationship name="DISPONIBILITA'" X="406" Y="187">
+</Relationship>
+<Relationship name="REDATTO" X="195" Y="-26">
+</Relationship>
+<Relationship name="PARTECIPAZIONE" X="173" Y="309">
+</Relationship>
+<Entity name="Luogo" X="882" Y="773" >
+<Attribute name="Nazione" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="Regione" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="Citta" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Identifier name="id0" attributes="Nazione, Regione, Citta"/>
+</Entity>
+<Relationship name="LOCALIZZATO" X="911" Y="662">
+</Relationship>
+<Relationship name="SITUATO" X="1175" Y="790">
+</Relationship>
+<Relationship name="ORIGINARIO" X="725" Y="789">
+</Relationship>
+<Generalization name="G0"  X="830" Y="605" total="true" exclusive="true" father="Indagine">
+<Child name="Indagine Corso"/>
+<Child name="Indagine Conclusa"/>
+</Generalization>
+<Generalization name="G1"  X="1456" Y="405" total="true" exclusive="true" father="Arma">
+<Child name="Bomba"/>
+<Child name="Altra Arma"/>
+<Child name="Veicolo"/>
+<Child name="Arma Chimica"/>
+<Child name="Arma da fuoco"/>
+</Generalization>
+<RelLink name="RelLink0" X="1069" Y="791" relationship="APPARTENENZA" entity="Attacco Terroristico" minCard="0" maxCard="1"/>
+<RelLink name="RelLink0" X="850" Y="774" relationship="APPARTENENZA" entity="Attacco Coordinato" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="1064" Y="993" relationship="APPARTENENZA TERRORISTICA" entity="Terrorista" minCard="0" maxCard="1"/>
+<RelLink name="RelLink0" X="1348" Y="989" relationship="APPARTENENZA TERRORISTICA" entity="Gruppo Terroristico" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="1190" Y="882" relationship="REFERENZA" entity="Attacco Terroristico" minCard="0" maxCard="1"/>
+<RelLink name="RelLink0" X="950" Y="870" relationship="REFERENZA" entity="Indagine" minCard="1" maxCard="1"/>
+<RelLink name="RelLink0" X="1367" Y="707" relationship="OBIETTIVO" entity="Target" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="1105" Y="623" relationship="OBIETTIVO" entity="Attacco Terroristico" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="1772" Y="792" relationship="STRUMENTO" entity="Arma" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="1349" Y="855" relationship="STRUMENTO" entity="Attacco Terroristico" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="1187" Y="782" relationship="EFFETTUATO" entity="Attacco Terroristico" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="559" Y="642" relationship="EFFETTUATO" entity="Terrorista" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="1020" Y="324" relationship="SEQUENZA" entity="Attacco Terroristico" minCard="0" maxCard="1" idName="Attacco Precedente"/>
+<RelLink name="RelLink2" X="1151" Y="374" relationship="SEQUENZA" entity="Attacco Terroristico" minCard="0" maxCard="1" idName="Attacco Successivo"/>
+<RelLink name="RelLink0" X="1531" Y="946" relationship="DISPONIBILITA'" entity="Report" minCard="1" maxCard="1" idName="ID_indagine"/>
+<RelLink name="RelLink0" X="1555" Y="1198" relationship="DISPONIBILITA'" entity="Indagine Conclusa" minCard="1" maxCard="1"/>
+<RelLink name="RelLink0" X="1929" Y="1214" relationship="REDATTO" entity="Report" minCard="1" maxCard="1"/>
+<RelLink name="RelLink0" X="1745" Y="1266" relationship="REDATTO" entity="Organizzazione" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="1520" Y="1161" relationship="PARTECIPAZIONE" entity="Indagine Corso" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="1046" Y="1127" relationship="PARTECIPAZIONE" entity="Organizzazione" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="1729" Y="189" relationship="SITUATO" entity="Target" minCard="1" maxCard="1"/>
+<RelLink name="RelLink0" X="1765" Y="391" relationship="SITUATO" entity="Luogo" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="1379" Y="561" relationship="LOCALIZZATO" entity="Attacco Terroristico" minCard="1" maxCard="1"/>
+<RelLink name="RelLink0" X="1652" Y="514" relationship="LOCALIZZATO" entity="Luogo" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="1268" Y="665" relationship="ORIGINARIO" entity="Terrorista" minCard="0" maxCard="1"/>
+<RelLink name="RelLink0" X="1566" Y="672" relationship="ORIGINARIO" entity="Luogo" minCard="0" maxCard="N"/>
+<Note>
+{\rtf1\ansi
+{\fonttbl\f0\fnil Monospaced;\f1\fnil TimesRoman;}
+{\colortbl\red0\green0\blue0;\red51\green51\blue51;\red0\green255\blue0;\red255\green0\blue0;}
+
+\li0\ri0\fi0\f1\fs48\i0\b\ul0\cf1 Progettare e realizzare una base di dati per la memorizzazione delle informazioni relative ad attacchi terroristici, con le seguenti caratteristiche:  \par
+\par
+Un attacco terroristico \'e8 caratterizzato dalla data e ora, dal luogo (nazione, regione, citt\'e0, etc.), dalle coordinate geografiche,\cf0  dal gruppo terroristico o il terrorista \cf1 che lo ha realizzato, dal numero di terroristi coinvolti, dal tipo di attacco,\cf0  dall\rquote arma utilizzata\cf1 ,\cf0  dal target\cf1 , dal numero di persone ferite e/o decedute, da una descrizione testuale dell\rquote attacco, dalle possibili motivazioni. \cf2 Esistono varie tipologie di attacco terroristico: assassinio, rapimento, bomba, assalto armato, attacco a un\rquote infrastruttura, sabotaggio, etc.  [dubbio generalizzazione]\cf1\par
+\par
+Alcune di queste tipologie prevedono l\rquote utilizzo di un\rquote arma. In questo caso si vuole sapere il tipo di arma (arma da fuoco, veicolo, biologica, chimica, radiologica, nucleare, esplosiva, etc.), il nome, una descrizione, etc.  \par
+\par
+Con riferimento al target, \'e8 di interesse conoscere le generalit\'e0 del target (e.g., posizione, nome, descrizione, etc) e la tipologia di target: governativo, aziendale, polizia, militare, infrastruttura, scuola/universit\'e0, giornalismo/media, marittimo, etc.  \par
+\par
+\'c8 di interesse conoscere se l\rquote attacco fa parte di un insieme di attacchi coordinati e, se s\'ec, quali sono gli altri. \cf2 Inoltre, \'e8 di interesse conoscere se l\rquote attacco fa parte di una sequenza di attacchi avvenuti in passato, ed \'e8 di interesse conoscere la sequenza temporale  \cf1\par
+\par
+L\rquote attacco pu\'f2 essere eseguito/rivendicato da un singolo terrorista o da un gruppo terroristico. Per il terrorista si riportano i dati anagrafici se disponibili, la provenienza, l\rquote eventuale appartenenza ad un gruppo terroristico. Per il gruppo terroristico si riportano il nome e gli eventuali alias, la sigla se disponibile, la provenienza principale, una descrizione, la tipologia di gruppo (religioso, politico, etc) \par
+\par
+Per le indagini concluse, \'e8 disponibile un \cf3 report\cf1  di dettaglio con informazioni dettagliate per l\rquote attacco contenente la data di chiusura dell\rquote indagine, l\rquote organizzazione che lo ha redatto, un titolo, una descrizione, e un allegato. Per le indagini in corso, devono essere riportate l\rquote organizzazione o le organizzazioni che stanno indagando con i relativi dati (sigla, nome, Paese, etc); la data di inizio dell\rquote indagine; etc. \par
+\par
+domande\par
+1) indagine in corso pu\'f2 essere vista come un'evoluzione di indagine?\par
+2) possiamo identificare il report con l'indagine conclusa?\par
+3) Dubbi nella traccia\par
+\par
+\par
+\par
+vincoli\par
+1) Il passaggio da indagine in corso a indagine conclusa viene fatta da un operatore\par
+2) Un attacco pu\'f2 appartenere solo a una sequenza di attacchi\par
+3) Un terrorista pu\'f2 appartenere solo ad un gruppo terroristico\par
+4) Gli identificativi interi hanno il ruolo di contatore univoco per identificare le relative entit\'e0\par
+5) Un target \'e8 tale solo se \'e8 avvenuto un attacco terroristico su di esso\par
+\par
+\par
+\par
+annotazioni\par
+entit\'e0 target : attributo luogo si deve usare associazione (1,1)\par
+entit\'e0 attacco terroristico: l'identificatore \'e8 (data_ora,coordinate_geografiche,terrorista/gruppo terroristico)\par
+\par
+\par
+\fs36\par
+\par
+\par
+\par
+\par
+\par
+\li0\ri0\fi0\ul0\par
+}
+
+</Note>
+</ConceptualSchema>
+<RestructuredSchema>
+<Entity name="Attacco Terroristico" X="485" Y="511" >
+<Attribute name="data_ora" type="timestamps" minCard="1" maxCard="1" solved="false"/>
+<Attribute name="latitudine" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="longitudine" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="numero_terroristi" type="integer" minCard="1" maxCard="1" solved="false"/>
+<Attribute name="numero_feriti" type="integer" minCard="1" maxCard="1" solved="false"/>
+<Attribute name="numero_deceduti" type="integer" minCard="1" maxCard="1" solved="false"/>
+<Attribute name="descrizione" type="varchar" minCard="1" maxCard="1" length="500" solved="false"/>
+<Attribute name="motivazione" type="varchar" minCard="0" maxCard="N" length="150" solved="false"/>
+<Attribute name="tipologia" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Identifier name="id0" attributes="data_ora, latitudine, longitudine"/>
+</Entity>
+
+<Entity name="Arma" X="1138" Y="445" >
+<Attribute name="ID_arma" type="integer" minCard="1" maxCard="1" solved="false"/>
+<Attribute name="nome" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="descrizione" type="varchar" minCard="1" maxCard="1" length="500" solved="false"/>
+<Identifier name="id0" attributes="ID_arma"/>
+</Entity>
+
+<Entity name="Target" X="1093" Y="743" >
+<Attribute name="nome" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="descrizione" type="varchar" minCard="1" maxCard="1" length="500" solved="false"/>
+<Attribute name="tipologia" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Identifier name="id0" attributes="nome"/>
+</Entity>
+
+<Entity name="Terrorista" X="-21" Y="811" >
+<Attribute name="ID" type="integer" minCard="1" maxCard="1" solved="false"/>
+<Attribute name="provenienza" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="nome" type="varchar" minCard="0" maxCard="1" length="30" solved="false"/>
+<Attribute name="cognome" type="varchar" minCard="0" maxCard="1" length="30" solved="false"/>
+<Attribute name="data_nascita" type="date" minCard="0" maxCard="1" solved="false"/>
+<Identifier name="id0" attributes="ID"/>
+</Entity>
+
+<Entity name="Gruppo Terroristico" X="361" Y="1141" >
+<Attribute name="nome" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="alias" type="varchar" minCard="0" maxCard="N" length="30" solved="false"/>
+<Attribute name="sigla" type="varchar" minCard="0" maxCard="1" length="30" solved="false"/>
+<Attribute name="provenienza_principale" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="descrizione" type="varchar" minCard="1" maxCard="1" length="500" solved="false"/>
+<Attribute name="tipologia_gruppo" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Identifier name="id0" attributes="nome"/>
+</Entity>
+
+<Entity name="Organizzazione" X="1103" Y="1204" >
+<Attribute name="nome" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="sigla" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="paese" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Identifier name="id0" attributes="nome"/>
+</Entity>
+
+<Entity name="Report" X="1497" Y="991" >
+<Attribute name="data_chiusura" type="date" minCard="1" maxCard="1" solved="false"/>
+<Attribute name="titolo" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="descrizione" type="varchar" minCard="1" maxCard="1" length="500" solved="false"/>
+<Attribute name="allegato" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+</Entity>
+
+<Entity name="Indagine" X="787" Y="908" >
+<Attribute name="ID_indagine" type="integer" minCard="1" maxCard="1" solved="false"/>
+<Identifier name="id0" attributes="ID_indagine"/>
+</Entity>
+
+<Entity name="Indagine Corso" X="703" Y="1032" >
+<Attribute name="data_inizio" type="date" minCard="1" maxCard="1" solved="false"/>
+</Entity>
+
+<Entity name="Indagine Conclusa" X="960" Y="1033" >
+</Entity>
+
+<Entity name="Attacco Coordinato" X="145" Y="403" >
+<Attribute name="ID" type="integer" minCard="1" maxCard="1" solved="false"/>
+<Identifier name="id0" attributes="ID"/>
+</Entity>
+
+<Entity name="Arma da fuoco" X="961" Y="221" >
+<Attribute name="calibro_arma" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+</Entity>
+
+<Entity name="Bomba" X="916" Y="86" >
+<Attribute name="tipologia_esplosivo" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="quantita_esplosivo" type="varchar" minCard="0" maxCard="1" length="30" solved="false"/>
+<Attribute name="potenza" type="varchar" minCard="0" maxCard="1" length="30" solved="false"/>
+</Entity>
+
+<Entity name="Veicolo" X="1170" Y="87" >
+<Attribute name="targa" type="varchar" minCard="0" maxCard="1" length="30" solved="false"/>
+<Attribute name="CF_proprietario" type="varchar" minCard="0" maxCard="1" length="30" solved="false"/>
+</Entity>
+
+<Entity name="Arma Chimica" X="778" Y="258" >
+<Attribute name="sostanza" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+</Entity>
+
+<Entity name="Altra Arma" X="1457" Y="358" >
+</Entity>
+
+<Entity name="Luogo" X="1115" Y="799" >
+<Attribute name="Nazione" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="Regione" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="Citta" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Identifier name="id0" attributes="Nazione, Regione, Citta"/>
+</Entity>
+
+<Relationship name="APPARTENENZA" X="143" Y="617">
+</Relationship>
+<Relationship name="APPARTENENZA TERRORISTICA" X="-28" Y="1185">
+</Relationship>
+<Relationship name="REFERENZA" X="551" Y="908">
+</Relationship>
+<Relationship name="OBIETTIVO" X="845" Y="798">
+</Relationship>
+<Relationship name="STRUMENTO" X="1101" Y="619">
+</Relationship>
+<Relationship name="EFFETTUATO" X="303" Y="860">
+</Relationship>
+<Relationship name="SEQUENZA" X="559" Y="371">
+</Relationship>
+<Relationship name="DISPONIBILITA'" X="1191" Y="1024">
+</Relationship>
+<Relationship name="REDATTO" X="1552" Y="1221">
+</Relationship>
+<Relationship name="PARTECIPAZIONE" X="705" Y="1221">
+</Relationship>
+<Relationship name="LOCALIZZATO" X="1144" Y="688">
+</Relationship>
+<Relationship name="SITUATO" X="1408" Y="816">
+</Relationship>
+<Relationship name="ORIGINARIO" X="958" Y="815">
+</Relationship>
+<RelLink name="RelLink0" X="364" Y="612" relationship="APPARTENENZA" entity="Attacco Terroristico" minCard="0" maxCard="1"/>
+<RelLink name="RelLink0" X="188" Y="522" relationship="APPARTENENZA" entity="Attacco Coordinato" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="65" Y="1046" relationship="APPARTENENZA TERRORISTICA" entity="Terrorista" minCard="0" maxCard="1"/>
+<RelLink name="RelLink0" X="263" Y="1198" relationship="APPARTENENZA TERRORISTICA" entity="Gruppo Terroristico" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="588" Y="793" relationship="REFERENZA" entity="Attacco Terroristico" minCard="0" maxCard="1"/>
+<RelLink name="RelLink0" X="706" Y="920" relationship="REFERENZA" entity="Indagine" minCard="1" maxCard="1"/>
+<RelLink name="RelLink0" X="1002" Y="792" relationship="OBIETTIVO" entity="Target" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="767" Y="738" relationship="OBIETTIVO" entity="Attacco Terroristico" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="1178" Y="562" relationship="STRUMENTO" entity="Arma" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="895" Y="613" relationship="STRUMENTO" entity="Attacco Terroristico" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="432" Y="769" relationship="EFFETTUATO" entity="Attacco Terroristico" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="221" Y="866" relationship="EFFETTUATO" entity="Terrorista" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="1253" Y="350" relationship="SEQUENZA" entity="Attacco Terroristico" minCard="0" maxCard="1" idName="Attacco Precedente"/>
+<RelLink name="RelLink2" X="1384" Y="400" relationship="SEQUENZA" entity="Attacco Terroristico" minCard="0" maxCard="1" idName="Attacco Successivo"/>
+<RelLink name="RelLink0" X="1358" Y="1033" relationship="DISPONIBILITA'" entity="Report" minCard="1" maxCard="1" idName="ID_indagine"/>
+<RelLink name="RelLink0" X="1115" Y="1036" relationship="DISPONIBILITA'" entity="Indagine Conclusa" minCard="1" maxCard="1"/>
+<RelLink name="RelLink0" X="1580" Y="1145" relationship="REDATTO" entity="Report" minCard="1" maxCard="1"/>
+<RelLink name="RelLink0" X="1389" Y="1234" relationship="REDATTO" entity="Organizzazione" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="754" Y="1138" relationship="PARTECIPAZIONE" entity="Indagine Corso" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="957" Y="1234" relationship="PARTECIPAZIONE" entity="Organizzazione" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="919" Y="648" relationship="LOCALIZZATO" entity="Attacco Terroristico" minCard="1" maxCard="1"/>
+<RelLink name="RelLink0" X="1185" Y="756" relationship="LOCALIZZATO" entity="Luogo" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="1331" Y="801" relationship="SITUATO" entity="Target" minCard="1" maxCard="1"/>
+<RelLink name="RelLink0" X="1329" Y="829" relationship="SITUATO" entity="Luogo" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="550" Y="843" relationship="ORIGINARIO" entity="Terrorista" minCard="0" maxCard="1"/>
+<RelLink name="RelLink0" X="1073" Y="828" relationship="ORIGINARIO" entity="Luogo" minCard="0" maxCard="N"/>
+</RestructuredSchema>
+</Project>
